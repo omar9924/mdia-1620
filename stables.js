@@ -46,7 +46,7 @@ horses[2].isHungry = true;
 horses[3].isHungry= false;
 
 var totalStalls=10;
-function checkAvailableStalls(){
+function checkAvailableStalls(){ // Checks how many stalls are still available
     var availableStalls= totalStalls - horses.length;
     console.log(availableStalls);
 }
