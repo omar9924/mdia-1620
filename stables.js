@@ -1,34 +1,74 @@
 var stableName = "Rosewood Stables";
 
-var horse1 = {
+var horse4 = {
+    name: "Stacy",
+    age: 9,
+    favoriteTreat: "Lettuce",
+    monthlyRent: 67,
+    nickname: "stace",
+    isInside: true,
+    breed: "Arabian",
+    isTrained: true,
+};
+var horses= [
+    {
     name: "Bella",
     age: 67,
-    snack: "apples",
-    monthlyBoard: 500
-};
-
-var horse2 = {
+    favoriteTreat: "apples",
+    monthlyRent: 500,
+    nickname: "belle",
+    isInside: true,
+    breed: "Arabian",
+    isTrained: true },
+ {
     name: "Charlie",
     age: 6,
-    snack: "hotdogs",
-    monthlyBoard: 55
-};
-
-var horse3 = {
+    favoriteTreat: "hotdogs",
+    monthlyRent: 55,
+    nickname: "carl",
+    isInside: false,
+    breed: "Thoroughbred",
+    isTrained: false},
+ {
     name: "Daisy",
     age: 7,
-    snack: "burgers",
-    monthlyBoard: 600
-};
+    favoriteTreat: "burgers",
+    monthlyRent: 600,
+    nickname: "days",
+    isInside: true,
+    breed: "Appaloosa",
+    isTrained: false},
+    horse4
+];
+horses[0].isHungry = true;
+horses[1].isHungry = false;
+horses[2].isHungry = true;
+horses[3].isHungry= false;
 
-var horse1LatePayment = horse1.monthlyBoard * 1.20;
-var horse2LatePayment = horse2.monthlyBoard * 1.20;
-var horse3LatePayment = horse3.monthlyBoard * 1.20;
+var totalStalls=10;
+function checkAvailableStalls(totalStalls, occupiedStalls){ // Checks how many stalls are still available
+    var availableStalls= totalStalls - occupiedStalls;
+    console.log("room for "+ availableStalls + " horses");
+}
+checkAvailableStalls(totalStalls, horses.length);
+
+
+function calculateLatePayment(horse, lateFeeMultiplier) {
+    var amountOwing= horse.monthlyRent * lateFeeMultiplier;
+     var lateMessage= horse.name + "'s payment is late. The amount owing is $"+ amountOwing;
+     console.log(lateMessage);
+}
+calculateLatePayment(horses[1], 1.20);
+
+function getHorseNickname(horse) {
+    return horse.nickname;
+}
+console.log(getHorseNickname(horses[2]));
+
 
 var visitorMessage = "Welcome to " + stableName + "!";
-var lateMessage = horse3.name + "'s payment is late. The amount owing is $" + horse3LatePayment;
 console.log(visitorMessage);
-console.log(lateMessage);
+
 
 
 
