@@ -6,7 +6,7 @@ var horse4 = {
     favoriteTreat: "Lettuce",
     monthlyRent: 67,
     nickname: "stace",
-    location: true,
+    isInside: true,
     breed: "Arabian",
     isTrained: true,
 };
@@ -17,7 +17,7 @@ var horses= [
     favoriteTreat: "apples",
     monthlyRent: 500,
     nickname: "belle",
-    location: true,
+    isInside: true,
     breed: "Arabian",
     isTrained: true },
  {
@@ -26,7 +26,7 @@ var horses= [
     favoriteTreat: "hotdogs",
     monthlyRent: 55,
     nickname: "carl",
-    location: false,
+    isInside: false,
     breed: "Thoroughbred",
     isTrained: false},
  {
@@ -35,7 +35,7 @@ var horses= [
     favoriteTreat: "burgers",
     monthlyRent: 600,
     nickname: "days",
-    location: true,
+    isInside: true,
     breed: "Appaloosa",
     isTrained: false},
     horse4
@@ -46,18 +46,19 @@ horses[2].isHungry = true;
 horses[3].isHungry= false;
 
 var totalStalls=10;
-function checkAvailableStalls(){ // Checks how many stalls are still available
-    var availableStalls= totalStalls - horses.length;
-    console.log(availableStalls);
+function checkAvailableStalls(totalStalls, occupiedStalls){ // Checks how many stalls are still available
+    var availableStalls= totalStalls - occupiedStalls;
+    console.log("room for "+ availableStalls + " horses");
 }
-checkAvailableStalls();
+checkAvailableStalls(totalStalls, horses.length);
 
-function calculateLatePayment(horse) {
-    var amountOwing= horse.monthlyRent * 1.20;
+
+function calculateLatePayment(horse, lateFeeMultiplier) {
+    var amountOwing= horse.monthlyRent * lateFeeMultiplier;
      var lateMessage= horse.name + "'s payment is late. The amount owing is $"+ amountOwing;
      console.log(lateMessage);
 }
-calculateLatePayment(horses[1]);
+calculateLatePayment(horses[1], 1.20);
 
 function getHorseNickname(horse) {
     return horse.nickname;
