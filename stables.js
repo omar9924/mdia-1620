@@ -1,34 +1,73 @@
 var stableName = "Rosewood Stables";
 
-var horse1 = {
+var horse4 = {
+    name: "Stacy",
+    age: 9,
+    favoriteTreat: "Lettuce",
+    monthlyRent: 67,
+    nickname: "stace",
+    location: true,
+    breed: "Arabian",
+    isTrained: true,
+};
+var horses= [
+    {
     name: "Bella",
     age: 67,
-    snack: "apples",
-    monthlyBoard: 500
-};
-
-var horse2 = {
+    favoriteTreat: "apples",
+    monthlyRent: 500,
+    nickname: "belle",
+    location: true,
+    breed: "Arabian",
+    isTrained: true },
+ {
     name: "Charlie",
     age: 6,
-    snack: "hotdogs",
-    monthlyBoard: 55
-};
-
-var horse3 = {
+    favoriteTreat: "hotdogs",
+    monthlyRent: 55,
+    nickname: "carl",
+    location: false,
+    breed: "Thoroughbred",
+    isTrained: false},
+ {
     name: "Daisy",
     age: 7,
-    snack: "burgers",
-    monthlyBoard: 600
-};
+    favoriteTreat: "burgers",
+    monthlyRent: 600,
+    nickname: "days",
+    location: true,
+    breed: "Appaloosa",
+    isTrained: false},
+    horse4
+];
+horses[0].isHungry = true;
+horses[1].isHungry = false;
+horses[2].isHungry = true;
+horses[3].isHungry= false;
 
-var horse1LatePayment = horse1.monthlyBoard * 1.20;
-var horse2LatePayment = horse2.monthlyBoard * 1.20;
-var horse3LatePayment = horse3.monthlyBoard * 1.20;
+var totalStalls=10;
+function checkAvailableStalls(){
+    var availableStalls= totalStalls - horses.length;
+    console.log(availableStalls);
+}
+checkAvailableStalls();
+
+function calculateLatePayment(horse) {
+    var amountOwing= horse.monthlyRent * 1.20;
+     var lateMessage= horse.name + "'s payment is late. The amount owing is $"+ amountOwing;
+     console.log(lateMessage);
+}
+calculateLatePayment(horses[1]);
+
+function getHorseNickname(horse) {
+    return horse.nickname;
+}
+console.log(getHorseNickname(horses[2]));
+
 
 var visitorMessage = "Welcome to " + stableName + "!";
-var lateMessage = horse3.name + "'s payment is late. The amount owing is $" + horse3LatePayment;
 console.log(visitorMessage);
-console.log(lateMessage);
+
 
 
 
